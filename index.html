@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Vibe Roastery - Crafting the Perfect Vibe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Kopi Vibe</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#beans">Our Beans</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cart">
+                <i data-lucide="shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image-wrapper">
+            <div class="hero-image" id="heroImage"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Crafting the Perfect Vibe</h1>
+            <p class="hero-subtitle">Premium coffee roasted to perfection, one bean at a time</p>
+            <a href="#beans" class="btn btn-primary">View Menu</a>
+        </div>
+        <div class="scroll-indicator">
+            <i data-lucide="chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Our Beans Section -->
+    <section id="beans" class="beans-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Beans</h2>
+                <p class="section-subtitle">Carefully selected and expertly roasted</p>
+            </div>
+            <div class="beans-container">
+                <div class="beans-scroll" id="beansScroll">
+                    <div class="bean-card">
+                        <div class="bean-image" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        </div>
+                        <div class="bean-info">
+                            <h3 class="bean-name">Ethiopian Yirgacheffe</h3>
+                            <p class="bean-description">Bright, floral notes with hints of citrus and jasmine</p>
+                            <div class="bean-details">
+                                <span class="bean-origin">Origin: Ethiopia</span>
+                                <span class="bean-roast">Roast: Light</span>
+                            </div>
+                            <div class="bean-footer">
+                                <span class="bean-price">Rp 125,000</span>
+                                <button class="btn btn-cart" data-product="Ethiopian Yirgacheffe" data-price="125000">
+                                    <i data-lucide="shopping-cart"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bean-card">
+                        <div class="bean-image" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        </div>
+                        <div class="bean-info">
+                            <h3 class="bean-name">Colombian Supremo</h3>
+                            <p class="bean-description">Smooth, balanced with caramel sweetness and nutty undertones</p>
+                            <div class="bean-details">
+                                <span class="bean-origin">Origin: Colombia</span>
+                                <span class="bean-roast">Roast: Medium</span>
+                            </div>
+                            <div class="bean-footer">
+                                <span class="bean-price">Rp 110,000</span>
+                                <button class="btn btn-cart" data-product="Colombian Supremo" data-price="110000">
+                                    <i data-lucide="shopping-cart"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bean-card">
+                        <div class="bean-image" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        </div>
+                        <div class="bean-info">
+                            <h3 class="bean-name">Sumatran Mandheling</h3>
+                            <p class="bean-description">Bold, earthy with deep chocolate and spice notes</p>
+                            <div class="bean-details">
+                                <span class="bean-origin">Origin: Sumatra</span>
+                                <span class="bean-roast">Roast: Dark</span>
+                            </div>
+                            <div class="bean-footer">
+                                <span class="bean-price">Rp 135,000</span>
+                                <button class="btn btn-cart" data-product="Sumatran Mandheling" data-price="135000">
+                                    <i data-lucide="shopping-cart"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="experience-container">
+            <div class="experience-image" style="background-image: url('https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+            </div>
+            <div class="experience-content">
+                <h2 class="section-title">The Roasting Experience</h2>
+                <p class="experience-text">
+                    At Kopi Vibe Roastery, we believe that great coffee starts with exceptional beans and expert craftsmanship. 
+                    Our master roasters carefully monitor each batch, ensuring every bean reaches its perfect roast profile.
+                </p>
+                <p class="experience-text">
+                    From the moment the beans enter our roaster to the final cooling process, we maintain strict quality control 
+                    to bring you coffee that's not just a beverage, but an experience.
+                </p>
+                <div class="experience-features">
+                    <div class="feature-item">
+                        <i data-lucide="award"></i>
+                        <div>
+                            <h4>Premium Quality</h4>
+                            <p>Single-origin beans sourced directly from farms</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <h4>Small Batch</h4>
+                            <p>Roasted in small batches for optimal flavor</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="heart"></i>
+                        <div>
+                            <h4>Artisan Crafted</h4>
+                            <p>Hand-crafted with passion and attention to detail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kopi Vibe Roastery</h3>
+                    <p>Crafting the perfect vibe, one cup at a time.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#beans">Our Beans</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i data-lucide="map-pin"></i> Jakarta, Indonesia</li>
+                        <li><i data-lucide="phone"></i> +62 812 3456 7890</li>
+                        <li><i data-lucide="mail"></i> hello@kopivibe.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Instagram Feed</h4>
+                    <div class="instagram-grid">
+                        <div class="instagram-item" style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        </div>
+                        <div class="instagram-item" style="background-image: url('https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        </div>
+                        <div class="instagram-item" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        </div>
+                        <div class="instagram-item" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kopi Vibe Roastery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Your Cart</h3>
+                <button class="cart-close" id="closeCart">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="cart-empty">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total: <strong id="cartTotal">Rp 0</strong></span>
+                </div>
+                <button class="btn btn-checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
