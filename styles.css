@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
 :root {
     --charcoal: #1A1A1A;
     --cream: #F5F5DC;
@@ -13,18 +26,31 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     color: var(--charcoal);
     background-color: var(--cream);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navigation */
@@ -45,6 +71,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-brand h1 {
@@ -94,6 +122,8 @@ body {
     border-radius: 8px;
     transition: var(--transition);
     position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .nav-cart:hover {
@@ -127,13 +157,44 @@ body {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger:hover {
+    background: rgba(26, 26, 26, 0.05);
 }
 
 .hamburger span {
     width: 25px;
     height: 2px;
     background: var(--charcoal);
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hamburger span:nth-child(1) {
+    top: 8px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 8px;
 }
 
 /* Hero Section */
@@ -144,6 +205,8 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 .hero-image-wrapper {
@@ -211,6 +274,8 @@ body {
     border: none;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .btn-primary {
@@ -244,6 +309,9 @@ body {
 .beans-section {
     padding: 8rem 0;
     background: var(--cream);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .section-header {
@@ -269,6 +337,8 @@ body {
 .beans-container {
     overflow: hidden;
     padding: 2rem 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 .beans-scroll {
@@ -386,6 +456,9 @@ body {
 .experience-section {
     padding: 8rem 0;
     background: var(--white);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .experience-container {
@@ -395,6 +468,9 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     min-height: 600px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .experience-image {
@@ -474,6 +550,9 @@ body {
     background: var(--charcoal);
     color: var(--cream);
     padding: 5rem 0 2rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .footer-content {
@@ -767,38 +846,88 @@ body {
 @media (max-width: 968px) {
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 0;
         left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
+        width: 100vw;
+        max-width: 100%;
+        height: 100vh;
         background: var(--cream);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 3rem;
+        padding-top: 5rem;
         gap: 2rem;
         transition: left 0.3s ease;
         z-index: 999;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .nav-menu.active {
         left: 0;
     }
 
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        width: calc(100% - 2rem);
+        border-radius: 8px;
+        margin: 0 1rem;
+        transition: var(--transition);
+        -webkit-tap-highlight-color: transparent;
+        text-align: center;
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:active {
+        background: rgba(26, 26, 26, 0.05);
+    }
+
     .hamburger {
         display: flex;
+        z-index: 1001;
+        position: relative;
+        margin-left: 0;
     }
 
     .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
     }
 
     .hamburger.active span:nth-child(2) {
         opacity: 0;
+        transform: translateX(-50%) translateY(-50%);
+        width: 0;
     }
 
     .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
+        bottom: auto;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+
+    .nav-cart {
+        z-index: 1001;
+        position: relative;
+        margin-right: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    .navbar .container {
+        gap: 0.25rem;
+        justify-content: space-between;
     }
 
     .experience-container {
@@ -816,51 +945,416 @@ body {
 
 @media (max-width: 768px) {
     .container {
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar {
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar .container {
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+        gap: 0.5rem;
+    }
+
+    .nav-cart {
+        margin-right: 0;
+        padding: 0.5rem;
+    }
+
+    .hamburger {
+        margin-left: 0;
+        padding: 0.5rem;
+    }
+
+    .nav-brand {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav-brand h1 {
+        font-size: 1.25rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-cart {
+        order: 2;
+        flex-shrink: 0;
+    }
+
+    .hamburger {
+        order: 3;
+        flex-shrink: 0;
+    }
+
+    .hero {
+        height: 100vh;
+        padding-top: 70px;
+    }
+
+    .hero-content {
         padding: 0 1.5rem;
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .beans-section {
+        padding: 4rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
     }
 
     .beans-scroll {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
+        padding: 0.5rem;
     }
 
-    .section-title {
-        font-size: 2.5rem;
+    .bean-card {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .bean-image {
+        height: 240px;
+    }
+
+    .bean-info {
+        padding: 1.5rem;
+    }
+
+    .bean-name {
+        font-size: 1.25rem;
+    }
+
+    .bean-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .bean-details {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .bean-price {
+        font-size: 1.25rem;
+    }
+
+    .experience-section {
+        padding: 4rem 0;
+    }
+
+    .experience-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .experience-content .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .experience-text {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .experience-features {
+        margin-top: 2rem;
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        gap: 1rem;
+    }
+
+    .feature-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .feature-item p {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 3rem 0 1.5rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .footer-section h3,
+    .footer-section h4 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .cart-modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+
+    .cart-modal-header {
+        padding: 1.5rem;
+    }
+
+    .cart-items {
+        padding: 1.5rem;
+    }
+
+    .cart-footer {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar .container {
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+        gap: 0.25rem;
+    }
+
+    .nav-cart {
+        margin-right: 0;
+        padding: 0.5rem 0.25rem;
+    }
+
+    .hamburger {
+        margin-left: 0;
+        padding: 0.5rem 0.25rem;
+        width: 28px;
+        height: 28px;
+    }
+
+    .hamburger span {
+        width: 22px;
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 7px;
+    }
+
+    .hamburger span:nth-child(3) {
+        bottom: 7px;
+    }
+
+    .hamburger.active span:nth-child(1),
+    .hamburger.active span:nth-child(3) {
+        top: 50%;
+    }
+
+    .nav-brand {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav-brand h1 {
+        font-size: 1.1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-cart {
+        order: 2;
+        flex-shrink: 0;
+    }
+
+    .hamburger {
+        order: 3;
+        flex-shrink: 0;
+    }
+
     .hero-content {
         padding: 0 1rem;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
 
     .btn {
-        padding: 0.875rem 2rem;
-        font-size: 0.9rem;
+        padding: 0.875rem 1.75rem;
+        font-size: 0.875rem;
+    }
+
+    .beans-section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.875rem;
+    }
+
+    .beans-scroll {
+        gap: 1.25rem;
+        padding: 0.25rem;
+    }
+
+    .bean-image {
+        height: 200px;
+    }
+
+    .bean-info {
+        padding: 1.25rem;
+    }
+
+    .bean-name {
+        font-size: 1.1rem;
+    }
+
+    .bean-description {
+        font-size: 0.85rem;
+    }
+
+    .bean-price {
+        font-size: 1.1rem;
     }
 
     .bean-footer {
         flex-direction: column;
         gap: 1rem;
         align-items: stretch;
+        padding-top: 1rem;
     }
 
     .btn-cart {
         width: 100%;
         justify-content: center;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .experience-section {
+        padding: 3rem 0;
+    }
+
+    .experience-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .experience-content .section-title {
+        font-size: 1.75rem;
+    }
+
+    .experience-text {
+        font-size: 0.9rem;
+    }
+
+    .experience-features {
+        margin-top: 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .feature-item i {
+        width: 28px;
+        height: 28px;
+    }
+
+    .feature-item h4 {
+        font-size: 1rem;
+    }
+
+    .feature-item p {
+        font-size: 0.85rem;
+    }
+
+    .footer {
+        padding: 2.5rem 0 1rem;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+        font-size: 1.1rem;
+    }
+
+    .footer-section p,
+    .footer-section ul li {
+        font-size: 0.875rem;
+    }
+
+    .cart-modal-content {
+        width: 100%;
+        max-height: 90vh;
+        border-radius: 16px 16px 0 0;
+        margin-top: auto;
+    }
+
+    .cart-modal-header {
+        padding: 1.25rem;
+    }
+
+    .cart-modal-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .cart-items {
+        padding: 1.25rem;
+    }
+
+    .cart-footer {
+        padding: 1.25rem;
+    }
+
+    .cart-total {
+        font-size: 1.1rem;
+    }
+
+    .scroll-indicator {
+        bottom: 1.5rem;
     }
 }
 
